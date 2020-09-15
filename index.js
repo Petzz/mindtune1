@@ -3,12 +3,12 @@ const connectDb = require('./config/db');
 var app = express();
 var cors = require('cors');
 
-
-
 connectDb();
 
 
-app.use(express.json({ extended: false }));
+app.use(express.json({
+    extended: false
+}));
 app.use(cors());
 //app.post('/', function (req, res) {
 app.get("/url", cors(), (req, res, next) => {
@@ -20,8 +20,6 @@ app.get("/url", cors(), (req, res, next) => {
 
 app.post("/url/post", cors(), (req, res) => {
     var user_id = req;
-
-
     res.send(user_id);
 })
 
